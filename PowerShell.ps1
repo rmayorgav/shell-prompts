@@ -2,5 +2,5 @@
 
 function prompt {
   $currentPath = Split-Path -leaf -path (Get-Location)
-  "$env:USERNAME@$env:COMPUTERNAME [`e[32m$currentPath`e[m]> "
+  "$env:USERNAME@$env:COMPUTERNAME [$([char]27)[32m$currentPath$([char]27)[m]> "
 }
