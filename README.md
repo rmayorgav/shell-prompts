@@ -1,2 +1,3 @@
 # shell-prompts
-Shell prompts
+
+My collection of shell prompts
