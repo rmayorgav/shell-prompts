@@ -8,7 +8,7 @@ function Write-BranchName () {
             Write-Host " ($branch)" -ForegroundColor "red"
         }
         else {
-            Write-Host " ($branch)" -ForegroundColor "blue"
+            Write-Host " ($branch)" -ForegroundColor "yellow"
         }
     } catch {
         Write-Host " (no branches yet)" -ForegroundColor "yellow"
@@ -19,11 +19,8 @@ function prompt {
   $currentPath = Get-Location
   $userPrompt = "$('>' * ($nestedPromptLevel + 1)) "
   
-  Write-Host "(" -NoNewLine
-  Write-Host "$env:USERNAME@$env:COMPUTERNAME" -NoNewLine -ForegroundColor "blue"
-  Write-Host ")-[" -NoNewLine
-  Write-Host "$currentPath" -NoNewLine -ForegroundColor "green"
-  Write-Host "]" -NoNewLine
+  Write-Host "($env:USERNAME@$env:COMPUTERNAME)" -NoNewLine -ForegroundColor "blue"
+  Write-Host " [$currentPath]" -NoNewLine -ForegroundColor "green"
   if (Test-Path .git) {
 	  Write-BranchName
   } else {
