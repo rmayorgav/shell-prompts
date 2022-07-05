@@ -18,8 +18,12 @@ function Write-BranchName () {
 function prompt {
   $currentPath = Get-Location
   $userPrompt = "$('>' * ($nestedPromptLevel + 1)) "
-  #Write-Host "$env:USERNAME@$env:COMPUTERNAME " -NoNewLine
+  
+  Write-Host "(" -NoNewLine
+  Write-Host "$env:USERNAME@$env:COMPUTERNAME" -NoNewLine -ForegroundColor "blue"
+  Write-Host ")-[" -NoNewLine
   Write-Host "$currentPath" -NoNewLine -ForegroundColor "green"
+  Write-Host "]" -NoNewLine
   if (Test-Path .git) {
 	  Write-BranchName
   } else {
